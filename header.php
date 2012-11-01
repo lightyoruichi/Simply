@@ -4,14 +4,16 @@
  * @subpackage Scratch_Theme
  */
 ?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" "http://www.w3.org/TR/html4/loose.dtd">
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
 	<head profile="http://gmpg.org/xfn/11">
 	<meta charset="utf-8" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
-	  <!– Tell IE8 to display in IE7 standards mode -->
-  	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
@@ -23,12 +25,9 @@
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/styles.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/plugins.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/shortcodes.css" />
-	<!--HTML5 Shiv-->
-<!--[if lt IE 9]>
-			<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
-			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-			<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/ie7-squish.js"></script>
-<![endif]-->
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]--> 
 
 	
 	<meta property='fb:app_id' content='438850026173137' />
@@ -41,7 +40,7 @@
 
 
 	<!-- jQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> 
 	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.gmap.min.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/mediaelement-and-player.min.js"></script>
@@ -63,7 +62,7 @@
 		})();
 
 	</script>
-		<?php wp_head(); ?>
+		<?php wp_deregister_script('jquery'); wp_head(); ?>
 	</head>
 	<body>
 	<div id="fb-root"></div>

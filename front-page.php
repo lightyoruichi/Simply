@@ -18,7 +18,7 @@ get_header();
 		<ul class="slides">
 	<?php
 		$posts = get_posts(array(
-			'numberposts' => -1,
+			'numberposts' => 5,
 			'post_type' => 'post',
 			'meta_key' => 'front_slider',
 			'meta_value' => '1'
@@ -31,12 +31,13 @@ get_header();
 				$attachment_id = get_post_meta($post->ID, 'front_slider_image', true);
 				$size = "full"; // (thumbnail, medium, large, full or custom size)
 				$image_attributes = wp_get_attachment_image_src( $attachment_id, $size );
+				$my_excerpt = get_excerpt_by_id($post->ID); //$post_id is the post id of the desired post
 				echo '<li>';
 				echo '<img src="' .  $image_attributes[0] . '" width="' .  $image_attributes[1] . '" height="' .  $image_attributes[2] . '" alt="" />';
 				echo '<div class="caption right">';
 				echo '<div class="body">';
 				echo '<h2 class="light">' . get_the_title($post->ID) . '</h2>';
-				echo '<p>' . get_the_title($post->ID) . '</p>';
+				echo '<p>' . $my_excerpt . '</p>';
 				echo '</div>';
 				echo '<div class="meta clearfix">';
 				echo '<a href="' . get_permalink($post->ID) . '" class="button small gradient">View Post</a>';
@@ -108,6 +109,7 @@ get_header();
 				$attachment_id = get_post_meta($post->ID, 'recent_post_image', true);
 				$size = "full"; // (thumbnail, medium, large, full or custom size)
 				$image_attributes = wp_get_attachment_image_src( $attachment_id, $size );
+				$my_excerpt = get_excerpt_by_id($post->ID); //$post_id is the post id of the desired post
 			echo '<li>';
 				echo '<a href="' . get_permalink($post->ID) . '"></a>';
 				echo '<img src="' .  $image_attributes[0] . '" width="' .  $image_attributes[1] . '" height="' .  $image_attributes[2] . '" alt="" />';
@@ -146,6 +148,7 @@ get_header();
 				$attachment_id = get_post_meta($post->ID, 'featured_blog_image', true);
 				$size = "full"; // (thumbnail, medium, large, full or custom size)
 				$image_attributes = wp_get_attachment_image_src( $attachment_id, $size );
+				$my_excerpt = get_excerpt_by_id($post->ID); //$post_id is the post id of the desired post
 			echo '<li class="one-third">';
 				echo '<a href="' . get_permalink($post->ID) . '" class="entry-image clearfix">
 				<img width="300px" height="90%" src="' .  $image_attributes[0] . '" alt="" /></a>';
