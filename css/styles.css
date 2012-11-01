@@ -8,10 +8,10 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 
 body {
-	font-family:'Source Sans Pro';
-	font-size:14px;
+	font-family:Verdana,Arial,Helvetica,sans-serif;
+	font-size:12px;
 	line-height:22px;
-	color:#727378;
+	color:#252F47;
 	-webkit-font-smoothing:antialiased;
 	-webkit-text-size-adjust:100%;
 }
@@ -20,7 +20,7 @@ h1,h2,h3,h4,h5,h6 {
 	margin-bottom:10px;
 	font-weight:600;
 	line-height:1.2;
-	color:#444;
+	color:#0B5ED7;
 	letter-spacing:-0.06em;
 }
 
@@ -33,7 +33,7 @@ h6 { font-size:13px; }
 
 
 a {
-	color:inherit;
+	color:#0E5FD8;
 	-webkit-transition:color .3s;
 	   -moz-transition:color .3s;
 	    -ms-transition:color .3s;
@@ -41,7 +41,7 @@ a {
 	        transition:color .3s;
 }
 
-a:hover { color:#0E5FD8; }
+a:hover { color:#0B5ED7; }
 
 ::selection {
 	color:#fff;
@@ -256,7 +256,7 @@ input[type="text"]:focus { border-color:#aaaaaa; }
 .main-nav > ul > li > a {
 	display:block;
 	padding:37px 0;
-	color:#333333;
+	color:#0B5ED7;
 	font-size:16px;
 	font-weight:bold;
 	border-top:3px solid #fff;
@@ -440,24 +440,24 @@ input[type="text"]:focus { border-color:#aaaaaa; }
 #footer {
 	margin:40px 0 0;
 	padding:50px 0 100px;
-	background:#444;
-	color:#a4a4a4;
+	background:#EFEFF4;
+	color:#252F47;
 }
 
-#footer a { color:#fff; }
+#footer a { color:#0E5FD8; }
 
-#footer a:hover { color:#0E5FD8; }
+#footer a:hover { color:#252F47; }
 
 #footer .logo { margin:0 0 20px; }
 
-#footer .widget-title { margin:0 0 29px; color:#fff; }
+#footer .widget-title { margin:0 0 29px; color:#0E5FD8; }
 
 #footer h1,
 #footer h2,
 #footer h3,
 #footer h4,
 #footer h5,
-#footer h6 { color:#fff; }
+#footer h6 { color:#0B5ED7; }
 
 
 #toTop {
@@ -514,7 +514,7 @@ input[type="text"]:focus { border-color:#aaaaaa; }
 .twitter .tweet_list li .at { color:#444; }
 
 #footer .twitter .tweet_list li a,
-#footer .twitter .tweet_list li .at { color:#fff; }
+#footer .twitter .tweet_list li .at { color:#0B5ED7; }
 
 #footer .twitter .tweet_list li a:hover { color:#0E5FD8; }
 

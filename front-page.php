@@ -23,17 +23,17 @@ get_header();
 			'meta_key' => 'front_slider',
 			'meta_value' => '1'
 		));
- 
+
 		if($posts)
 		{
-			echo '<li>';
 			foreach($posts as $post)
 		{
 				$attachment_id = get_post_meta($post->ID, 'front_slider_image', true);
 				$size = "full"; // (thumbnail, medium, large, full or custom size)
 				$image_attributes = wp_get_attachment_image_src( $attachment_id, $size );
+				echo '<li>';
 				echo '<img src="' .  $image_attributes[0] . '" width="' .  $image_attributes[1] . '" height="' .  $image_attributes[2] . '" alt="" />';
-				echo '<div class="caption left">';
+				echo '<div class="caption right">';
 				echo '<div class="body">';
 				echo '<h2 class="light">' . get_the_title($post->ID) . '</h2>';
 				echo '<p>' . get_the_title($post->ID) . '</p>';
@@ -42,8 +42,8 @@ get_header();
 				echo '<a href="' . get_permalink($post->ID) . '" class="button small gradient">View Post</a>';
 				echo '</div>';
 				echo '</div>';
+				echo '</li>';
 		}
-			echo '</li>';
 		}
  	?> 	
 		</ul>
@@ -52,9 +52,9 @@ get_header();
 	<div class="clear"></div>
 
 	<div class="headline">
-		<h1 class="title">Welcome to SimplyInfinite</h1>
+		<h1 class="title">Welcome to SimplyHealthy@Schools Malaysia</h1>
 
-		<h3 class="sub-title">A responsive, retina ready HTML Template</h3>
+		<h4 class="sub-title">This blog is part of the sustainability program from Philips to teach children aged 8-12 how to improve their health and well-being.</h4>
 	</div>
 	<!--END .headline-->
 
@@ -63,28 +63,30 @@ get_header();
 	<section class="features clearfix">
 
 		<article class="feature one-third">
-			<h2 class="icon large circle"><span class="icon-html"></span>Super Duper Code</h2>
+			<h2 class="icon large circle"><a href="<?php bloginfo('url'); ?>/category/students/"><img src="<?php echo get_template_directory_uri(); ?>/images/front_kids.png"></a></h2>
 
-			<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
+			<p>Have fun with Joey and the Healthy Heroes! Download colouring pages, activity kits and workbooks!</p>
 		</article>
 
 		<article class="feature one-third">
-			<h2 class="icon large circle"><span class="icon-settings"></span>User Friendly Setup</h2>
+			<h2 class="icon large circle"><a href="<?php bloginfo('url'); ?>/category/parents/"><img src="<?php echo get_template_directory_uri(); ?>/images/front_parents.png"></a></h2>
 
-			<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
+			<p>Home activity and discussion topics that you can use to teach your children how about staying healthy and well!</p>
 		</article>
 
 		<article class="feature one-third">
-			<h2 class="icon large circle"><span class="icon-list-icons"></span>Responsive Layout</h2>
+			<h2 class="icon large circle"><a href="<?php bloginfo('url'); ?>/category/educators/"><img style="margin-bottom:-8px;margin-top:8px;" src="<?php echo get_template_directory_uri(); ?>/images/front_educators.png"></a></h2>
 
-			<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
+			<p>Teachers and educators will be able to download lesson plans and education tool kits to teach children more about health and well-being in the classroom.</p>
 		</article>
 
 	</section>
 	<!--END .features-->
 
+		<!--removed
+
 	<h4 class="section-title">
-		Recent Projects
+		Featured Schools
 		<div class="hr"></div>
 	</h4>
 
@@ -92,7 +94,7 @@ get_header();
 	<ul class="recent-projects clearfix">
 		<?php
 		$posts = get_posts(array(
-			'numberposts' => -1,
+			'numberposts' => 3,
 			'post_type' => 'post',
 			'meta_key' => 'recent_post',
 			'meta_value' => '1'
@@ -100,21 +102,21 @@ get_header();
  
 		if($posts)
 		{
-			echo '<li>';
 			foreach($posts as $post)
 		{
 				$postexcerpt = get_excerpt_by_id($post->ID); //$post_id is the post id of the desired post
 				$attachment_id = get_post_meta($post->ID, 'recent_post_image', true);
 				$size = "full"; // (thumbnail, medium, large, full or custom size)
 				$image_attributes = wp_get_attachment_image_src( $attachment_id, $size );
+			echo '<li>';
 				echo '<a href="' . get_permalink($post->ID) . '"></a>';
 				echo '<img src="' .  $image_attributes[0] . '" width="' .  $image_attributes[1] . '" height="' .  $image_attributes[2] . '" alt="" />';
 				echo '<div class="des">';
 				echo '<h2 class="proj_title">' . get_the_title($post->ID) . '</h2>';
 				echo '<p class="proj_desc">' . $postexcerpt . '</p>';
 				echo '</div>';
-		}
 			echo '</li>';
+		}
 		}
  		?> 	
 	</ul>
@@ -130,7 +132,7 @@ get_header();
 	<ul class="recent-posts clearfix">
 		<?php
 		$posts = get_posts(array(
-			'numberposts' => -1,
+			'numberposts' => 3,
 			'post_type' => 'post',
 			'meta_key' => 'featured_blog',
 			'meta_value' => '1'
@@ -138,28 +140,29 @@ get_header();
  
 		if($posts)
 		{
-			echo '<li class="one-third">';
 			foreach($posts as $post)
 		{
 				$postexcerpt = get_excerpt_by_id($post->ID); //$post_id is the post id of the desired post
 				$attachment_id = get_post_meta($post->ID, 'featured_blog_image', true);
 				$size = "full"; // (thumbnail, medium, large, full or custom size)
 				$image_attributes = wp_get_attachment_image_src( $attachment_id, $size );
-				echo '<a href="' . get_permalink($post->ID) . '" class="entry-image clearfix"><img src="' .  $image_attributes[0] . '" alt="" /></a>';
+			echo '<li class="one-third">';
+				echo '<a href="' . get_permalink($post->ID) . '" class="entry-image clearfix">
+				<img width="300px" height="90%" src="' .  $image_attributes[0] . '" alt="" /></a>';
 				echo '<h3 class="entry-title">';
 				echo '<a href="' . get_permalink($post->ID) . '">' . get_the_title($post->ID) . '</a>';
 				echo '</h3>';
 				echo '<div class="entry-body">';
 				echo '<p>' . $postexcerpt . '</p>';
 				echo '</div>';
-		}
 			echo '</li>';
+		}
 		}
  		?> 
 	</ul>
 	<!--END .recent-posts-->
 
-
+	<!--removed
 	<div class="announcement clearfix">
 		<div class="body">
 			<h2>Announcement title</h2>
@@ -171,30 +174,31 @@ get_header();
 	<!--END .announcement-->
 
 
+	<!--removed
 	<div class="one-third">
 		<h4 class="section-title">
-			Our Services
+			Objective
 			<div class="hr"></div>
 		</h4>
 
 		<div class="accordion clearfix">
 			<ul>
 				<li>
-					<a href="#"><span></span><h4>Web Development</h4></a>
+					<a href="#"><span></span><h4>Our Environment</h4></a>
 
 					<div class="inner">
 						<p>Sed faucibus pretium mi et malesuada. Sed scelerisque placerat lacinia.</p>
 					</div>
 				</li>
 				<li>
-					<a href="#"><span></span><h4>Database Managment</h4></a>
+					<a href="#"><span></span><h4>Our People</h4></a>
 
 					<div class="inner">
 						<p>Sed faucibus pretium mi et malesuada. Sed scelerisque placerat lacinia.</p>
 					</div>
 				</li>
 				<li>
-					<a href="#"><span></span><h4>SEO Optimisation</h4></a>
+					<a href="#"><span></span><h4>Our Suppliers</h4></a>
 
 					<div class="inner">
 						<p>Sed faucibus pretium mi et malesuada. Sed scelerisque placerat lacinia.</p>
@@ -203,13 +207,14 @@ get_header();
 			</ul>
 		</div>
 		<!--END .accordion-->
+	<!--removed
 
 		<div class="clear"></div><div class="clear"></div>
 	</div>
 
 	<div class="one-third">
 		<h4 class="section-title">
-			Why choose us?
+			About SimplyHealthy@Schools?
 			<div class="hr"></div>
 		</h4>
 
@@ -222,7 +227,7 @@ get_header();
 
 	<div class="one-third last">
 		<h4 class="section-title">
-			What people are saying
+			Testimonials
 			<div class="hr"></div>
 		</h4>
 
@@ -235,9 +240,9 @@ get_header();
 
 		<div class="clear"></div><div class="clear"></div>
 	</div>
-	
+	<!--END #main-->
+
 
 </section>
-<!--END #main-->
 
 	<?php get_footer();?>

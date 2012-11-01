@@ -28,15 +28,10 @@
 		<p class="no_comments_yet">No comments yet.</p>
 			<?php endif;?>
 
-		<p class="comments_rss"><?php post_comments_feed_link(__('<abbr title="Really Simple Syndication">RSS</abbr> feed for comments on this post.')); ?></p>
 		
-		<?php if(pings_open()): // If pingbackss are open ?>
-
-		<p class="comments_pings"><a href="<?php trackback_url(); ?>" rel="trackback">TrackBack <abbr title="Universal Resource Locator">URL</abbr></a></p>
-		
-		<?php endif; if(comments_open()): // If comments are open ?>
+		<?php if(comments_open()): // If comments are open ?>
 				
-				<h2 id="reply_title">Leave a reply</h2><?php
+				<h4 id="reply_title">Leave a reply</h4><?php
 				
 				if(get_option('comment_registration') && !is_user_logged_in()): // If logged-in is required, but user is not logged in
 				
